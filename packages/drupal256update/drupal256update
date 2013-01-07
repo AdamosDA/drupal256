@@ -1,0 +1,21 @@
+#!/bin/bash
+cd /opt/drupal256/
+git pull
+
+PLATFORM="$(cat /etc/drupal256/platform)"
+LOCALVERSION="$(cat /etc/drupal256/version)"
+REMOTEVERSION="$(cat /opt/drupal256/platform/lucid256/updates/2013010701/version)"
+if [[ $LOCALVERSION -eq $REMOTEVERSION ]] ; then
+exit
+fi
+
+echo "Platform is: $PLATFORM"
+echo "Local version is: $LOCALVERSION"
+echo "Remote version is: $REMOTEVERSION"
+
+cd /opt/drupal256/platform/$PLATFORM/updates/
+for i in `find 2* -type d`; do
+if [[ $LOCALVERSION -lt $i ]] ; then
+echo $i/install.sh
+fi
+done
