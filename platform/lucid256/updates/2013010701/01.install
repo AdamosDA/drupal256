@@ -1,0 +1,2 @@
+#!/bin/bash
+rsync -a /opt/drupal256/platform/lucid256/updates/2013010701/01.bash_profile ~drupal256/.bash_profile
