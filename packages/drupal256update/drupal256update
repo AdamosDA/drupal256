@@ -4,7 +4,7 @@ git pull
 git clean -nd
 git clean -fd
 git checkout -f  
-git pull
+git pull > /dev/null
   
 
 if [ ! -f /opt/drupal256/platform/lucid256/updates/latest/version ] ; then
