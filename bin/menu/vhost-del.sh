@@ -18,7 +18,7 @@ DOCROOT="/var/www/vhosts/${domain}"
          a2dissite $domain > /dev/null 2>&1
          echo "Restarting apache..."                  
          /etc/init.d/apache2 restart  > /dev/null 2>&1
-	 sudo /usr/local/bin/menu/vhost-log_delete.sh $domain
+	 sudo /opt/drupal256/bin/menu/vhost-log_delete.sh $domain
          echo "Success!"                                                      	 
          echo " "                                                      	 
 	 echo "*** Please EXIT to MAIN MENU to reload active virtual host list  ***"                                                      	          

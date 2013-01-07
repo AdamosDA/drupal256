@@ -15,6 +15,6 @@ menu:monitor:Server Monitoring panel: Server Monitoring panel  | Press ESC or Q 
 	 exec:Top 50 _Big Files Uploaded:truncate:find /var/www/vhosts -type f -printf "%s %h/%f\n" | sort -rn -k1 | head -n 50 | awk '{ print $1/1048576 "MB" " " $2}'
 	 nop
 	 exec:_Network Interfaces:disp:/sbin/ifconfig | awk '/^eth/ { printf("%s\t",$1) } /inet addr:/ { gsub(/.*:/,"",$2); if ($2 !~ /^127/) print $2; }'
-	 exec:_Active Connections:disp:/usr/local/bin/menu/connections.sh
+	 exec:_Active Connections:disp:/opt/drupal256/bin/menu/connections.sh
 	 nop
 	 exit:E_xit

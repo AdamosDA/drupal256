@@ -1,0 +1,7 @@
+#!/bin/bash
+# Script to enable server custom updates
+# You must be a root user to use this script
+# -------------------------------------------------------------------------
+
+ln -s /etc/drupal256/drupal256update /etc/cron.daily/
+cat /opt/drupal256/platform/lucid256/updates/latest/version > /etc/drupal256/version
