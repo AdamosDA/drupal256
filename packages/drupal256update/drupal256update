@@ -16,6 +16,6 @@ echo "Remote version is: $REMOTEVERSION"
 cd /opt/drupal256/platform/$PLATFORM/updates/
 for i in `find 2* -type d`; do
 if [[ $LOCALVERSION -lt $i ]] ; then
-echo $i/install.sh
+$i/install.sh
 fi
 done
