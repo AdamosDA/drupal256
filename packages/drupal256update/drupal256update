@@ -1,6 +1,16 @@
 #!/bin/bash
 cd /opt/drupal256/
 git pull
+git clean -nd
+git clean -fd
+git checkout -f  
+git pull
+  
+
+if [ ! -f /opt/drupal256/platform/lucid256/updates/latest/version ] ; then
+echo "*** WARNING *** Latest version unavailable!";exit
+fi
+
 
 PLATFORM="$(cat /etc/drupal256/platform)"
 LOCALVERSION="$(cat /etc/drupal256/version)"
@@ -19,3 +29,5 @@ if [[ $LOCALVERSION -lt $i ]] ; then
 $i/install.sh
 fi
 done
+
+echo $REMOTEVERSION > /etc/drupal256/version
