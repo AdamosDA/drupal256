@@ -1,0 +1,31 @@
+#!/bin/bash
+# Script to update user password in batch mode
+# You must be a root user to use this script
+# -------------------------------------------------------------------------
+# ----------------------------------------------------------------------
+# /root is good place to store clear text password
+# create file with random password
+
+cat /dev/null > ~drupal256/.bash_history
+cat /dev/null > ~drupal256/.mysql_history
+cat /dev/null > ~drupal256/.ssh/known_hosts
+cat /dev/null > /root/.bash_history
+cat /dev/null > /root/.mysql_history
+cat /dev/null > /root/.ssh/known_hosts
+
+echo "Clearing history and other files, please wait..."
+/bin/rm ~drupal256/.Xauthority
+/bin/rm /root/.Xauthority
+/bin/rm ~drupal256/.htoprc
+/bin/rm ~drupal256/.joe_state
+for i in $(find /var/log -name '*.gz'); do
+	/bin/rm $i
+done
+for i in $(find /var/log -name '*.1'); do
+	cat /dev/null > $i
+done
+for i in $(find /var/log -name 'unattended-upgrades-dpkg_2012*.log'); do
+	/bin/rm $i
+done
+echo " "
+

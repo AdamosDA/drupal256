@@ -1,0 +1,17 @@
+#!/bin/bash
+# Script to update user password in batch mode
+# You must be a root user to use this script
+# -------------------------------------------------------------------------
+# ----------------------------------------------------------------------
+# /root is good place to store clear text password
+# create file with random password
+
+echo "initializing enviroment..."
+/etc/init.d/vnstat stop
+/usr/bin/vnstat -i eth0 --delete --force
+/usr/bin/vnstat -u -i eth0
+echo "Initialization completed."
+echo "Restarting daemons."
+/etc/init.d/vnstat start
+echo " "
+

@@ -1,0 +1,11 @@
+#!/bin/bash
+# Script to update user password in batch mode
+# You must be a root user to use this script
+# -------------------------------------------------------------------------
+# ----------------------------------------------------------------------
+# /root is good place to store clear text password
+
+
+# create file with random password
+
+mysql --batch --skip-column-names -e "SELECT user, host FROM user" mysql | sed 's,\t,"@",g;s,^,show grants for ",g;s,$,";,g;'|mysql --batch --skip-column-names |sed 's,$,;,g'

@@ -1,0 +1,37 @@
+#!/bin/bash
+# Script to update user password in batch mode
+# You must be a root user to use this script
+# -------------------------------------------------------------------------
+# ----------------------------------------------------------------------
+# /root is good place to store clear text password
+#FILE="/root/.my.cnf"
+FILE="/home/drupal256/.my.cnf"
+FILETMP="/tmp/.my.cnf.tmp"
+USERS="root" 
+
+echo "Generating file, please wait..."
+
+# overwrite file, this is bash specific a better solution is cat > $FILETMP
+>$FILETMP
+echo "[client]" >> $FILETMP 
+for u in $USERS
+do
+   p=$(pwgen -1 -n 8) # create random password
+   mysql -uroot -e "use mysql;update user set password = PASSWORD('$p') where user = '$u';FLUSH PRIVILEGES;"
+# debugging line below
+#   echo "use mysql;update user set password = PASSWORD('$p') where user = '$u'; FLUSH PRIVILEGES;"
+   echo "user=$u" >> $FILETMP
+   echo "password=$p" >> $FILETMP
+done
+echo "socket=/var/run/mysqld/mysqld.sock" >> $FILETMP
+echo ""
+/usr/bin/chattr -i $FILE
+mv $FILETMP $FILE
+echo "Random password and username list stored in $FILE file"
+echo "---------------------------------------------------------"
+# Uncomment following line if you want immediately update all users
+# password,
+# be careful with this option, it is recommended that you review $FILETMP first
+chmod go-rw $FILE
+chown drupal256.users $FILE
+/usr/bin/chattr +i $FILE

@@ -1,0 +1,28 @@
+#!/bin/bash
+# Script to update user password in batch mode
+# You must be a root user to use this script
+# -------------------------------------------------------------------------
+# ----------------------------------------------------------------------
+# /root is good place to store clear text password
+FILE="/home/drupal256/.my.cnf"
+USERS="root"
+
+# create file with random password
+echo "Clearing mysql passwords, please wait..."
+
+ 
+# overwrite file, this is bash specific a better solution is cat > $FILE
+
+for u in $USERS
+do
+mysql -uroot -e "use mysql;update user set password = '' where user = '$u';FLUSH PRIVILEGES;"
+# debugging line below
+# echo  "use mysql;update user set password = '' where user = '$u'; FLUSH PRIVILEGES;"
+done
+/usr/bin/chattr -i $FILE
+cat /dev/null > $FILE
+/usr/bin/chattr +i $FILE
+echo ""
+echo "Passwords cleared"
+echo "---------------------------------------------------------"
+

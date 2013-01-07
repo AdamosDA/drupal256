@@ -1,0 +1,11 @@
+#!/bin/bash
+# Script to update user password in batch mode
+# You must be a root user to use this script
+# -------------------------------------------------------------------------
+# ----------------------------------------------------------------------
+# /root is good place to store clear text password
+
+
+
+mysql -uroot -e "use mysql;select Host, User, Password from user;"
+

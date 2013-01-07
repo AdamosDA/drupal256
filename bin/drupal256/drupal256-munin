@@ -1,0 +1,29 @@
+#!/bin/bash
+# Script to update user password in batch mode
+# You must be a root user to use this script
+# -------------------------------------------------------------------------
+# ----------------------------------------------------------------------
+# /root is good place to store clear text password
+# create file with random password
+IP_ETH0=$(ifconfig eth0 |grep inet |head -1 | cut  -d\  -f 12-13|cut -d\: -f2|cut  -d\  -f 1)
+IP_ETH1=$(ifconfig eth1 |grep inet |head -1 | cut  -d\  -f 12-13|cut -d\: -f2|cut  -d\  -f 1)
+
+echo "Clearing history and other files, please wait..."
+/bin/rm /var/lib/munin/localdomain/*
+/bin/rm -rf /var/cache/munin/www/localdomain/localhost.localdomain/*
+/bin/rm /etc/munin/plugins/ip_*
+
+ln -s /usr/share/munin/plugins/ip_ /etc/munin/plugins/ip_$IP_ETH0
+ln -s /usr/share/munin/plugins/ip_ /etc/munin/plugins/ip_$IP_ETH1
+sed -i "s/ETH0/$IP_ETH0/g" /etc/munin/plugin-conf.d/munin-node
+sed -i "s/ETH1/$IP_ETH1/g" /etc/munin/plugin-conf.d/munin-node
+sed -i "s/173.45.253.95/$IP_ETH0/g" /etc/ufw/before.rules
+sed -i "s/10.180.147.48/$IP_ETH1/g" /etc/ufw/before.rules
+
+
+echo "Initialization completed."
+echo "Restarting daemons."
+service munin-node restart
+service ufw restart
+echo " "
+
