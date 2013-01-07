@@ -4,7 +4,7 @@ git pull
 
 PLATFORM="$(cat /etc/drupal256/platform)"
 LOCALVERSION="$(cat /etc/drupal256/version)"
-REMOTEVERSION="$(cat /opt/drupal256/platform/lucid256/updates/2013010701/version)"
+REMOTEVERSION="$(cat /opt/drupal256/platform/lucid256/updates/latest/version)"
 if [[ $LOCALVERSION -eq $REMOTEVERSION ]] ; then
 exit
 fi
