@@ -1,6 +1,6 @@
 #!/bin/bash
 cd /opt/drupal256/
-git pull
+git pull > /dev/null
 git clean -nd
 git clean -fd
 git checkout -f  
