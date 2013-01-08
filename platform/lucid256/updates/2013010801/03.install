@@ -1,0 +1,6 @@
+#!/bin/bash
+rsync -a /opt/drupal256/platform/lucid256/updates/2013010801/03.cgi.php.ini /etc/php5/cgi/php.ini
+rsync -a /opt/drupal256/platform/lucid256/updates/2013010801/03.fpm.php.ini /etc/php5/fpm/php.ini
+rsync -a /opt/drupal256/platform/lucid256/updates/2013010801/03.php-fpm.conf /etc/php5/fpm/php-fpm.conf
+rsync -a /opt/drupal256/platform/lucid256/updates/2013010801/03.www.conf /etc/php5/fpm/pool.d/www.conf
+/etc/init.d/php5-fpm restart

@@ -1,0 +1,5 @@
+#!/bin/bash
+rsync -a /opt/drupal256/platform/lucid256/updates/2013010801/02.apache2.conf /etc/apache2/apache2.conf
+host=$(hostname)
+sed -i "s/^ServerName .*\$/ServerName $host/g" /etc/apache2/apache2.conf 
+/etc/init.d/apache2 restart
