@@ -1,5 +1,5 @@
 #!/bin/bash
-cp /opt/drupal256/platform/lucid256/updates/2013011101/01.ssig-apache.conf /etc/drupal256/ssig-apache.conf
-cp /opt/drupal256/platform/lucid256/updates/2013011101/01.ssigupdate  /etc/cron.hourly/ssigupdate
+cp /opt/drupal256/platform/lucid256/updates/2013011102/01.ssig-apache.conf /etc/drupal256/ssig-apache.conf
+cp /opt/drupal256/platform/lucid256/updates/2013011102/01.ssigupdate  /etc/cron.hourly/ssigupdate
 ln -s /etc/drupal256/ssig-apache.conf /etc/apache2/conf.d/
 /etc/init.d/apache2 reload
