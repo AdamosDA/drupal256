@@ -28,21 +28,18 @@ do
 		echo "Active kernel for `hostname`"
 		echo "on `date`:";echo;
 		echo "------>   `uname -srmo`   <------"
-		echo "___________________________________________________________";echo;
 		exit
 		;;
 	 i)
 	 	echo "-----------------------------------------------------------"
 		echo "Kernels installed:";echo;
 		dpkg -l | grep linux-image-2;
-		echo "-----------------------------------------------------------";echo;
 		exit
 	 	;;
 	 o)
 	 	echo "-----------------------------------------------------------"
 		echo "Kernels to be removed:";echo;
 		dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' | head -n -3 
-		echo "-----------------------------------------------------------";echo;
 		exit
 	 	;;
 	 u)
