@@ -1,1 +1,2 @@
+#!/bin/bash
 /opt/drupal256/bin/server_signature.sh > /etc/drupal256/ssig.json
