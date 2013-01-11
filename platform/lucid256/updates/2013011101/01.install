@@ -1,0 +1,3 @@
+#!/bin/bash
+cp /opt/drupal256/platform/lucid256/updates/2013011101/01.ssig-apache.conf /etc/drupal256/ssig-apache.conf
+/etc/init.d/apache2 reload
