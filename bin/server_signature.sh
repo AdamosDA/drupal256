@@ -18,7 +18,7 @@ DATE=$(date '+%Y%m%d-%H:%M%:z')
 
 echo 
 echo \{ \"ServerName\"\:\"$HOSTNAME\"\, 
-echo \      \{ \"IPaddr\"\:\"$IPADDR\"\, 
+echo \  \"IPaddr\"\:\"$IPADDR\"\, 
 echo \ 	\"Platform\"\:\"$PLATFORM\"\, 
 echo \ 	\"UpdVer\"\:\"$UPDVER\"\, 
 echo \ 	\"Uptime\"\:\"$UPTIME\"\,
@@ -32,5 +32,4 @@ echo \ 	\"ApacheVer\"\:\"$APACHEVER\"\,
 echo \ 	\"MysqlVer\"\:\"$MYSQLVER\"\,
 echo \ 	\"PhpVer\"\:\"$PHPVER\"\,
 echo \  \"LastUpd\"\:\"$DATE\"
-echo \ 	\}
 echo \}
