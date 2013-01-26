@@ -3,5 +3,5 @@
 # You must be a root user to use this script
 # -------------------------------------------------------------------------
 
-ln -s /opt/drupal256/packages/drupal256update /etc/cron.daily/
+ln -s /opt/drupal256/packages/drupal256update/drupal256update /etc/cron.daily/
 cat /opt/drupal256/platform/lucid256/updates/latest/version > /etc/drupal256/version
