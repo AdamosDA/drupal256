@@ -1,0 +1,11 @@
+#!/bin/bash
+chattr -i ~drupal256/.munin*
+mv ~drupal256/.munin.htaccess ~drupal256/.admin.htaccess
+mv ~drupal256/.munin.htpasswd ~drupal256/.admin.htpasswd
+\rm /var/cache/munin/www/.htaccess
+ln -s ~drupal256/.admin.htaccess /var/cache/munin/www/.htaccess
+\rm /usr/share/phpmyadmin/.htaccess
+ln -s ~drupal256/.admin.htaccess /usr/share/phpmyadmin/.htaccess
+cat /opt/drupal256/platform/lucid256/updates/2013020401/01.admin.htaccess > ~drupal256/.admin.htaccess
+chattr +i ~drupal256/.admin*
+/etc/init.d/apache2 restart
