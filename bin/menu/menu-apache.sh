@@ -32,8 +32,8 @@ menu:apache:Apache Control Panel:Apache administration panel | Press ESC or Q to
 	 exec:_Start Apache server:disp:sudo /etc/init.d/apache2 start
 	 exec:S_top Apache server:disp:sudo /etc/init.d/apache2 stop
 	 nop
-	 exec:_Enable Munin HTTP Password Protection:edit:sudo chattr -i /home/drupal256/.munin.htpasswd /home/drupal256/.munin.htaccess;clear;htpasswd -b -c /home/drupal256/.munin.htpasswd drupal256 ~Enter password for user 'drupal256':~;sed -i "s/#Require/Require/g" /home/drupal256/.munin.htaccess;sudo chattr +i /home/drupal256/.munin.htpasswd /home/drupal256/.munin.htaccess
- 	 exec:_Disable Munin HTTP Password Protection:disp:sudo chattr -i /home/drupal256/.munin.htpasswd /home/drupal256/.munin.htaccess;cat /dev/null > /home/drupal256/.munin.htpasswd;sed -i "s/Require/#Require/g" /home/drupal256/.munin.htaccess;sudo chattr +i /home/drupal256/.munin.htpasswd /home/drupal256/.munin.htaccess;echo "Password disabled."
+	 exec:_Enable/Reset HTTP Password for administrative tools:edit:sudo chattr -i /home/drupal256/.admin.htpasswd /home/drupal256/.admin.htaccess;clear;htpasswd -b -c /home/drupal256/.admin.htpasswd drupal256 ~Enter password for user 'drupal256':~;sed -i "s/^#Require/Require/g" /home/drupal256/.admin.htaccess;sudo chattr +i /home/drupal256/.admin.htpasswd /home/drupal256/.admin.htaccess
+ 	 exec:_Disable HTTP Password for administrative tools (NOT recommended):disp:sudo chattr -i /home/drupal256/.admin.htpasswd /home/drupal256/.admin.htaccess;cat /dev/null > /home/drupal256/.admin.htpasswd;sed -i "s/^Require/#Require/g" /home/drupal256/.admin.htaccess;sudo chattr +i /home/drupal256/.admin.htpasswd /home/drupal256/.admin.htaccess;echo "Password disabled."
 	 nop
 	 exec:_Version:disp:apache2 -V
 	 exit:E_xit
