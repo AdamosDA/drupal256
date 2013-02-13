@@ -20,6 +20,6 @@ DOCROOT="/var/www/vhosts/${domain}"
          /etc/init.d/apache2 restart  > /dev/null 2>&1
 	 sudo /opt/drupal256/bin/menu/vhost-log_delete.sh $domain
          echo "Success!"                                                      	 
-         echo " "                                                      	 
+         echo "Note: Virtual host directory was not removed, if not empty. Please remove manually (sftp)."                                                      	 
 	 echo "*** Please EXIT to MAIN MENU to reload active virtual host list  ***"                                                      	          
 	 echo " "                                                      	 
