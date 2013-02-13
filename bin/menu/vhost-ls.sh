@@ -1,4 +1,4 @@
 #!/bin/bash
 
-ls /etc/apache2/sites-available/ --ignore=default --ignore=default-ssl
+ls /etc/apache2/sites-enabled/ --ignore=default --ignore=default-ssl --ignore=000-default
 
