@@ -30,8 +30,8 @@ DOCROOT="/var/www/vhosts/${domain}"
          			Allow from all
        			</Directory>
 
-                        CustomLog /var/log/apache2/$domain-access_log combined
-                        ErrorLog /var/log/apache2/$domain-error_log
+                        CustomLog /var/log/apache2/$domain-access.log combined
+                        ErrorLog /var/log/apache2/$domain-error.log
               </VirtualHost>
 	EOF
 
