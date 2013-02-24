@@ -10,6 +10,7 @@ echo "initializing enviroment..."
 /etc/init.d/vnstat stop
 /usr/bin/vnstat -i eth0 --delete --force
 /usr/bin/vnstat -u -i eth0
+sed -i "s/^MonthRotate\ [0-9]*/MonthRotate `date +%d`/g" /etc/vnstat.conf
 echo "Initialization completed."
 echo "Restarting daemons."
 /etc/init.d/vnstat start
