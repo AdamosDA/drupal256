@@ -21,4 +21,4 @@ fi
 	
 
 domain="$1"
-tail -f /var/log/apache2/$domain-access_log | sed -E "s/([0-9]+)/$COLORA\1$RESET/g;s/(\"[^\"]*\")/$COLORB\1$RESET/g"
+tail -f /var/log/apache2/$domain-access.log | sed -E "s/([0-9]+)/$COLORA\1$RESET/g;s/(\"[^\"]*\")/$COLORB\1$RESET/g"

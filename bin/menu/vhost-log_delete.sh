@@ -9,5 +9,7 @@ fi
 	
 
 domain="$1"
-/bin/rm /var/log/apache2/"${domain}"-access_log > /dev/null 2>&1
-/bin/rm /var/log/apache2/"${domain}"-error_log > /dev/null 2>&1
+/bin/rm /var/log/apache2/"${domain}"-access.log* > /dev/null 2>&1
+/bin/rm /var/log/apache2/"${domain}"-error.log* > /dev/null 2>&1
+/bin/rm /var/log/apache2/"${domain}"-access_log* > /dev/null 2>&1
+/bin/rm /var/log/apache2/"${domain}"-error_log* > /dev/null 2>&1
