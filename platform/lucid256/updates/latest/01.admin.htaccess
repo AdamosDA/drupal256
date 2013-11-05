@@ -1,9 +1,0 @@
-RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
-AuthUserFile /home/drupal256/.admin.htpasswd
-AuthType Basic
-AuthName "Authorization required"
-Require valid-user
-
-
