@@ -2,7 +2,6 @@
 # Script to enable server custom updates
 # You must be a root user to use this script
 # -------------------------------------------------------------------------
-platform=`cat /etc/drupal256/platform`
 
 ln -s /opt/drupal256/packages/drupal256update/drupal256update /etc/cron.hourly/
-cat /opt/drupal256/platform/$platform/updates/latest/version > /etc/drupal256/version
+cat /opt/drupal256/platform/lucid256/updates/latest/version > /etc/drupal256/version
