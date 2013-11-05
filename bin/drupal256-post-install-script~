@@ -38,10 +38,7 @@ echo "8. Initializing vnstat IP traffic stats"
 /opt/drupal256/bin/init/drupal256-vnstat
 echo ""
 
-echo "9. Enable drupal256 updates"
-/opt/drupal256/bin/init/drupal256-enable-updates
-
-echo "10. Email info"
+echo "9. Email info"
 /opt/drupal256/bin/init/drupal256-email-passwords
 echo ""
 
