@@ -45,4 +45,3 @@ echo ""
 echo "Installation completed."
 echo " "
 
-\rm /root/drupal256-post-install-script
