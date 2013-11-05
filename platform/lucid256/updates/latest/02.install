@@ -1,0 +1,7 @@
+#!/bin/bash
+mkdir /var/www/error/
+cp /opt/drupal256/platform/lucid256/updates/2013020401/02.500.php /var/www/error/500.php
+cp /opt/drupal256/platform/lucid256/updates/2013020401/02.500.png /var/www/error/500.png
+chown -R www-data.www-data /var/www/error/
+echo "ErrorDocument 500 /error/500.php" > /var/www/.htaccess
+echo "ErrorDocument 505 /error/500.php" >> /var/www/.htaccess

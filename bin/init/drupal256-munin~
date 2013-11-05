@@ -7,9 +7,6 @@
 # create file with random password
 IP_ETH0=$(ifconfig eth0 |grep inet |head -1 | cut  -d\  -f 12-13|cut -d\: -f2|cut  -d\  -f 1)
 IP_ETH1=$(ifconfig eth1 |grep inet |head -1 | cut  -d\  -f 12-13|cut -d\: -f2|cut  -d\  -f 1)
-munin_line1=`grep -nr ip_ munin-node |tail -2|head -1|gawk '{print $1}' FS=":"`
-munin_line2=`grep -nr ip_ munin-node |tail -1|head -1|gawk '{print $1}' FS=":"`
-ufw_line=`grep -nr munin /etc/ufw/before.rules |gawk '{print $1}' FS=":"`
 
 echo "Clearing history and other files, please wait..."
 /bin/rm /var/lib/munin/localdomain/*
@@ -20,14 +17,10 @@ ln -s /usr/share/munin/plugins/ip_ /etc/munin/plugins/ip_$IP_ETH0
 ln -s /usr/share/munin/plugins/ip_ /etc/munin/plugins/ip_$IP_ETH1
 #sed -i "s/ETH0/$IP_ETH0/g" /etc/munin/plugin-conf.d/munin-node
 #sed -i "s/ETH1/$IP_ETH1/g" /etc/munin/plugin-conf.d/munin-node
-sed -i "$((munin_line1))s/^\[.*/\[ip_$IP_ETH0\]/g" /etc/munin/plugin-conf.d/munin-node
-sed -i "$((munin_line2))s/^\[.*/\[ip_$IP_ETH1\]/g" /etc/munin/plugin-conf.d/munin-node
-#sed -i "s/173.45.253.95/$IP_ETH0/g" /etc/ufw/before.rules
-#sed -i "s/10.180.147.48/$IP_ETH1/g" /etc/ufw/before.rules
-sed -i "$((ufw_line+1))s/^\-A.*/\-A ufw-before-input \-d $IP_ETH0/g" /etc/ufw/before.rules
-sed -i "$((ufw_line+2))s/^\-A.*/\-A ufw-before-input \-s $IP_ETH0/g" /etc/ufw/before.rules
-sed -i "$((ufw_line+3))s/^\-A.*/\-A ufw-before-input \-d $IP_ETH1/g" /etc/ufw/before.rules
-sed -i "$((ufw_line+4))s/^\-A.*/\-A ufw-before-input \-s $IP_ETH1/g" /etc/ufw/before.rules
+sed -i "s/^\[ip_ETH0\]/\[ip_$IP_ETH0\]/g" /etc/munin/plugin-conf.d/munin-node
+sed -i "s/^\[ip_ETH1\]/\[ip_$IP_ETH1\]/g" /etc/munin/plugin-conf.d/munin-node
+sed -i "s/173.45.253.95/$IP_ETH0/g" /etc/ufw/before.rules
+sed -i "s/10.180.147.48/$IP_ETH1/g" /etc/ufw/before.rules
 
 
 echo "Initialization completed."
