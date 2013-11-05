@@ -21,15 +21,11 @@ DOCROOT="/var/www/vhosts/${domain}"
                         <Directory ${DOCROOT}>
                                 AllowOverride All
                         </Directory>
-		
-		        Alias /munin /var/cache/munin/www/
-        		<Directory /var/cache/munin/www/>
-         			Options +FollowSymLinks
-	         		AllowOverride None
-			        Order allow,deny
-         			Allow from all
-       			</Directory>
 
+			Alias /error/ /var/www/error/
+			ErrorDocument 500 /error/error500.php
+			ErrorDocument 505 /error/error500.php
+	
                         CustomLog /var/log/apache2/$domain-access.log combined
                         ErrorLog /var/log/apache2/$domain-error.log
               </VirtualHost>
