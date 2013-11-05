@@ -1,0 +1,3 @@
+#!/bin/bash
+cp /opt/drupal256/platform/precise512/updates/2013110502/01.my.cnf /etc/mysql/my.cnf
+service mysql restart
