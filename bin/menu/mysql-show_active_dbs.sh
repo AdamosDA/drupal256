@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DBS=`mysql --skip-column-name -uroot -e "show databases;" |sort`
+DBS=`mysql --skip-column-names -uroot -e "show databases;" |sort`
 DBSEXCLUDE="information_schema mysql phpmyadmin"
 
 for EXCLUDE in $DBSEXCLUDE

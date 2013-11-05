@@ -1,6 +1,6 @@
 #!/bin/bash
 
-USERS=`mysql --skip-column-name -uroot -e "use mysql;select user from user;" |sort|uniq`
+USERS=`mysql --skip-column-names -uroot -e "use mysql;select user from user;" |sort|uniq`
 USERSEXCLUDE="debian-sys-maint phpmyadmin zenoss root"
 
 for EXCLUDE in $USERSEXCLUDE

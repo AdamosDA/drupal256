@@ -6,4 +6,4 @@
 		exit 1
 	fi
 	user=$1;
-	 	mysql --skip-column-name -e "show grants for \`$user\`@'localhost'"
+	 	mysql --skip-column-names -e "show grants for \`$user\`@'localhost'"
