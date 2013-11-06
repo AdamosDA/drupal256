@@ -1,0 +1,4 @@
+Alias /error/ /optdrupal256/packages/error/
+ErrorDocument 403 /error/
+ErrorDocument 500 /error/
+ErrorDocument 505 /error/
