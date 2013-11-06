@@ -33,7 +33,7 @@ do
 	 i)
 	 	echo "-----------------------------------------------------------"
 		echo "Kernels installed:";echo;
-		dpkg -l | grep linux-image-2;
+		dpkg -l | grep linux-image-;
 		exit
 	 	;;
 	 o)
