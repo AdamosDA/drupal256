@@ -137,7 +137,7 @@
 	   $uptime = shell_exec('uptime');
 	   $memory = shell_exec('free');
 	   $ssig = shell_exec('cat /etc/drupal256/ssig.json');
-	   mail($to, $subject." | ".$srv.$uri,"Cloud server affected: ".$host."URI: http://".$srv.$uri."\nDate of occurrence: ".$date."Client IP address: ".$ip."\n"."Client details: ".$url."\n"."X-forwarder IP address: "./*$ipx.*/"\n"."X-forwarder details: "./*$urlx.*/"\n"."Server uptime: ".$uptime."\nMemory details: \n".$memory."\n\nServer signature below:".$ssig);
+//	   mail($to, $subject." | ".$srv.$uri,"Cloud server affected: ".$host."URI: http://".$srv.$uri."\nDate of occurrence: ".$date."Client IP address: ".$ip."\n"."Client details: ".$url."\n"."X-forwarder IP address: "./*$ipx.*/"\n"."X-forwarder details: "./*$urlx.*/"\n"."Server uptime: ".$uptime."\nMemory details: \n".$memory."\n\nServer signature below:".$ssig);
 	?>
 </body>
 </html>
