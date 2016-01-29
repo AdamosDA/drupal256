@@ -6,5 +6,5 @@
 - SSL self-signed certificates
 - [PHP](https://secure.php.net)
 - [MYSQL](https://www.mysql.com)
-- [EXIM](http://www.exim.org MTA
+- [EXIM](http://www.exim.org) MTA
 - [MUNIN](networked resource monitoring tool)
