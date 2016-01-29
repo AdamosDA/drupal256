@@ -1,5 +1,5 @@
 # drupal256
-## Linux ncurses/bash console app for the deployment of [Drupal](https://www.drupal.org) Cloud instances, featuring:
+## Linux ncurses/bash console app for the deployment of [Drupal](https://www.drupal.org)/[Wordpress](http://wordpress.org) Cloud instances, featuring:
 
 - Virtual hosting
 - [APACHE](http://apache.org)
