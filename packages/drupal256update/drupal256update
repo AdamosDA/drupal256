@@ -3,7 +3,7 @@ cd /opt/drupal256/
 git pull > /dev/null
 git clean -nd
 git clean -fd
-git checkout -f  
+git checkout -f  >/dev/null
 git pull > /dev/null
 
 PLATFORM="$(cat /etc/drupal256/platform)"

@@ -5,16 +5,18 @@ git clean -nd
 git clean -fd
 git checkout -f  
 git pull > /dev/null
-  
-
-if [ ! -f /opt/drupal256/platform/lucid256/updates/latest/version ] ; then
-echo "*** WARNING *** Latest version unavailable!";exit
-fi
-
 
 PLATFORM="$(cat /etc/drupal256/platform)"
 LOCALVERSION="$(cat /etc/drupal256/version)"
-REMOTEVERSION="$(cat /opt/drupal256/platform/lucid256/updates/latest/version)"
+
+
+if [ ! -f /opt/drupal256/platform/$PLATFORM/updates/latest/version ] ; then
+echo "*** WARNING *** Latest version unavailable!";exit
+fi
+
+REMOTEVERSION="$(cat /opt/drupal256/platform/$PLATFORM/updates/latest/version)"  
+
+
 if [[ $LOCALVERSION -eq $REMOTEVERSION ]] ; then
 exit
 fi
