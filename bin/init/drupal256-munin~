@@ -10,10 +10,7 @@ IP_ETH0=$(ifconfig eth0 |grep inet |head -1 | cut  -d\  -f 12-13|cut -d\: -f2|cu
 IP_ETH1=$(ifconfig eth1 |grep inet |head -1 | cut  -d\  -f 12-13|cut -d\: -f2|cut  -d\  -f 1)
 munin_line1=`grep -nr ip_ /etc/munin/plugin-conf.d/munin-node |tail -2|head -1|gawk '{print $1}' FS=":"`
 munin_line2=`grep -nr ip_ /etc/munin/plugin-conf.d/munin-node |tail -1|head -1|gawk '{print $1}' FS=":"`
-munin_line3=`grep -nr ip_ /etc/munin/plugin-conf.d/munin-node |tail -3|head -1|gawk '{print $1}' FS=":"`
-
 ufw_line=`grep -nr munin /etc/ufw/before.rules |gawk '{print $1}' FS=":"`
-ufw6_line=`grep -nr munin /etc/ufw/before6.rules |gawk '{print $1}' FS=":"`
 
 echo "Clearing history and other files, please wait..."
 /bin/rm /var/lib/munin/localdomain/*
