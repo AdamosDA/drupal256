@@ -13,7 +13,7 @@ LATKERN=$(/opt/drupal256/bin/kernel_clean.sh  -i|tail -1|cut -d\  -f3|cut -d\- -
 OBSKERN=$(/opt/drupal256/bin/kernel_clean.sh  -o|grep linux |wc -l)
 APACHEVER=$(/usr/sbin/apache2ctl -v|head -1|cut -f 2 -d\/ |cut -f 1 -d\ )
 MYSQLVER=$(mysql -V|cut -f 6 -d\ |cut -f 1 -d,)
-PHPVER=$(php5-fpm -v|head -1|cut -f 1 -d\-|cut -f 2 -d\ )
+PHPVER=$(php -v|head -1|cut -f 1 -d\-|cut -f 2 -d\ )
 DATE=$(date '+%Y%m%d-%H:%M%:z')
 
 echo 
